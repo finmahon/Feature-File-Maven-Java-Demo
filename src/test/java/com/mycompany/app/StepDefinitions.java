@@ -62,7 +62,16 @@ public class StepDefinitions {
 		if (AuthLevel.AUTH_LEVEL.containsKey(userType)) {
 			userAuthLevel = AuthLevel.AUTH_LEVEL.get(userType);
 		}
-		assertNotNull("Auth Level OK ",userAuthLevel);
+		assertNotNull("Auth Level OK ", userAuthLevel);
+	}
+
+	@Given("^I am a normal user$")
+	public void i_am_a_normal_user() throws Exception {
+		userType = "user";
+		if (AuthLevel.AUTH_LEVEL.containsKey(userType)) {
+			userAuthLevel = AuthLevel.AUTH_LEVEL.get(userType);
+		}
+		assertNotNull("Auth Level OK ", userAuthLevel);
 	}
 
 	@When("^I login with my credentials$")
@@ -76,7 +85,7 @@ public class StepDefinitions {
 				loginSuccess = true;
 			}
 		}
-		assertEquals("Successful Login ",true, loginSuccess);
+		assertEquals("Successful Login ", true, loginSuccess);
 	}
 
 	@When("^I request balance for (.*) from the accounts API$")
