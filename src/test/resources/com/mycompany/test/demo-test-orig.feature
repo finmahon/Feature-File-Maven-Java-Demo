@@ -17,7 +17,7 @@ Feature: Retrieve Account Balance
       | Username | Password    |
       | Bill     | password123 |
     And I request balance for <accountnumber> from the accounts API
-    Then I should get <balance> as the response
+    Then I should get <balance> as the balance request response
 
     Examples:
       | accountnumber | balance           |
@@ -32,7 +32,7 @@ Feature: Retrieve Account Balance
       | Username | Password    |
       | Betty    | password123 |
     And I request balance for <accountnumber> from the accounts API
-    Then I should get <balance> as the response
+    Then I should get <balance> as the balance request response
 
     Examples:
       | accountnumber | balance           |
@@ -41,13 +41,13 @@ Feature: Retrieve Account Balance
       | 33333         | 9999              |
       | 44444         | Account Not Found |
 
-  Scenario Outline: Normal user should be able to access only Accounts at Level 0
-    Given I am a normal user
+  Scenario Outline: Standard user should be able to access only Accounts at Level 0
+    Given I am a standard user
     When I login with my credentials
       | Username | Password    |
       | Bob      | password123 |
     And I request balance for <accountnumber> from the accounts API
-    Then I should get <balance> as the response
+    Then I should get <balance> as the balance request response
 
     Examples:
       | accountnumber | balance           |
