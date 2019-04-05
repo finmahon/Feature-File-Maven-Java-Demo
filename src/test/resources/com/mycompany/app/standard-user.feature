@@ -9,7 +9,7 @@ Feature: Standard User access to Accounts
       | AccountNum | AccountLevel | Balance |
       | 11111      | 2            | 99      |
       | 22222      | 1            | 999     |
-      | 33333      | 0            | 9999    |
+      | 33333      | 0            | 9999    | 
 
   Scenario Outline: Standard user should be able to access only Accounts at Level 0
     Given I am a standard user
@@ -21,7 +21,15 @@ Feature: Standard User access to Accounts
 
     Examples:
       | accountnumber | balance           |
-      | 11111         | Not Authorised    |
       | 22222         | Not Authorised    |
       | 33333         | 9999              |
-      | 44444         | Account Not Found |
+      | 44444         | Account Not Found | 
+
+  Scenario Outline: test
+    Given I am a standard user
+    When I login with with Username "Betty" and Password "password123"
+    Then I should get <balance> as the balance request response
+
+    Examples:
+      | balance |
+      
