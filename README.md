@@ -1,17 +1,38 @@
-# simple-java-maven-app
+# Simple BDD Demo App
 
-This repository is for the
-[Build a Java app with Maven](https://jenkins.io/doc/tutorials/build-a-java-app-with-maven/)
-tutorial in the [Jenkins User Documentation](https://jenkins.io/doc/).
+## Summary
 
-The repository contains a simple Java application which outputs the string
-"Hello world!" and is accompanied by a couple of unit tests to check that the
-main application works as expected. The results of these tests are saved to a
-JUnit XML report.
+Application has Account Objects, which have an id, balance and authoritisation level, and User Objects, which have a name, password and type.  There are three valid User types: User, Supervisor and Manager.  The BDD tests set up accounts and check that: user type `user` can access accounts with auth level 0, user type `supervisor` can access accounts with auth level 1, and user type `managefr` can access accounts with auth level 2  
 
-The `jenkins` directory contains an example of the `Jenkinsfile` (i.e. Pipeline)
-you'll be creating yourself during the tutorial and the `scripts` subdirectory
-contains a shell script with commands that are executed when Jenkins processes
-the "Deliver" stage of your Pipeline.
+## Objects:
 
-rev 1.0.0
+`Account` has fields: id, balance and level
+
+`User` has fields: name, password, user type
+
+User type `user` can access balance on accounts at level 0
+
+User type `supervisor` can access balance on accounts at level 1 or lower
+
+User type `manager` can access balance on accounts at level 2 or lower
+
+
+## Cucumber dependency
+
+io.cucmber dependency added to POM to facilitate BDD testing usung feature files in `src/test/resources/com/mycompany/app`
+
+[Maven Cucmmber](https://mvnrepository.com/artifact/io.cucumber)
+
+[Cucumber.io](https://cucumber.io/)
+
+
+## Feature Files 
+defined in `src/test/resources/com/mycompany/app`
+
+## Steps Definitions
+defined in `src/test/java/com/mycompany/app/StepDefinitions.java`
+
+## Run BDD Tests
+
+`mvn test`
+
