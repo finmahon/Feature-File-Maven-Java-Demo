@@ -12,7 +12,7 @@ Application has Account Objects, which have an id, balance and authoritisation l
 
 User type `user` can access balance on accounts at level 0
 
-User type `supervisor` can access balance on accounts at level 1 or lower
+User type `supervisor` can access balance on accounts at level 1 or lower  
 
 User type `manager` can access balance on accounts at level 2 or lower
 
